@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELDIA - Sócio Digital</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b0812;color:white;font-family:Arial,sans-serif}
+header{padding:20px;background:#151020;border-bottom:1px solid #39264f}
+.logo{font-size:25px;font-weight:bold;color:#bd8aff}
+header p{color:#aaa;font-size:13px;margin-bottom:0}
+main{max-width:650px;margin:auto;padding:20px}
+.welcome{background:linear-gradient(135deg,#302047,#171020);padding:22px;border-radius:18px;margin-top:15px}
+.welcome h2{color:#d2a9ff}
+.welcome p{color:#c8bfd2;line-height:1.6}
+#chat{height:45vh;min-height:250px;overflow-y:auto;padding:15px 0}
+.msg{padding:13px;margin:10px 0;border-radius:13px;line-height:1.5;white-space:pre-wrap}
+.bot{background:#21182e;border:1px solid #45305b}
+.user{background:#6339a0;margin-left:35px}
+.area{display:flex;gap:8px;position:sticky;bottom:0;background:#0b0812;padding:12px 0}
+input{flex:1;min-width:0;background:#1c1725;border:1px solid #594071;border-radius:12px;padding:14px;color:white;font-size:15px}
+button{background:#a46be8;color:white;border:0;border-radius:12px;padding:0 18px;font-weight:bold}
+small{color:#9c8cab}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">✧ ELDIA</div>
+<p>Seu sócio digital • Assistente</p>
+</header>
+<main>
+<div class="welcome">
+<h2>Olá! Sou seu sócio digital. 🤖</h2>
+<p>Estou aqui para ajudar você a encontrar oportunidades, criar negócios e desenvolver suas ideias.</p>
+<small>Assistente demonstrativo</small>
+</div>
+<div id="chat">
+<div class="msg bot">Olá! 👋 Seja bem-vindo ao ELDIA!\n\nO que você gostaria de construir hoje?</div>
+</div>
+<div class="area">
+<input id="message" placeholder="Digite sua mensagem..." />
+<button onclick="send()">Enviar</button>
+</div>
+</main>
+<script>
+function send(){
+const input=document.getElementById('message');
+const chat=document.getElementById('chat');
+const value=input.value.trim();
+if(!value)return;
+const user=document.createElement('div');
+user.className='msg user';
+user.textContent=value;
+chat.appendChild(user);
+input.value='';
+const bot=document.createElement('div');
+bot.className='msg bot';
+bot.textContent='Recebi sua ideia! 💜 Esta é a versão inicial do ELDIA. Em breve vamos conectar uma inteligência artificial real para analisar sua ideia e ajudar a criar um plano de ação.';
+chat.appendChild(bot);
+chat.scrollTop=chat.scrollHeight;
+}
+document.getElementById('message').addEventListener('keydown',e=>{
+if(e.key==='Enter')send();
+});
+</script>
+</body>
+  </html>
+  
